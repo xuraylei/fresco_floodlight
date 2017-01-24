@@ -1,4 +1,4 @@
-FRESCO(Floodlight)
+FRESCO(Floodlight) version 0.1
 ====================================
 ------------------------------------
 ##Description
@@ -12,10 +12,10 @@ FRESCO is an SDN development framework to facilitate development and deployment 
 - Floodlight v1.2 (built-in)
 
 ----------------------------------
-##How to Install?
+##How to Install and Build?
 1. install essential software: `$ sudo apt-get install build-essential openjdk-7-jdk ant maven python-dev eclipse`
-2. fork FRESCO_Floodlight repo: `$ git clone `TBA
-
+2. fork FRESCO_Floodlight repo: `$ git clone https://github.com/xuraylei/fresco_floodlight.git`
+3. build the source code: `$cd fresco_floodlight`  and `[fresco_floodlight]$ant`
 ----------------------------------
 ##How to build your own network (security) services?
 By default, FRESCO_floodlight has several sample network service/application in folder `freso_apps`, you can enable your service by putting them in `freso_apps/enable/`
@@ -27,6 +27,14 @@ For more information about how to write network service and existing FRESCO modo
 2. run FRESCO_Floodlight with command `$ java -jar target/floodlight.jar`
 
 -----------------------------------
+##Contributors
+Lei Xu              Texas A&M University
+Guofei Gu           Texas A&M University
+Robert A. Baykov    University of Maryland 
+Phillip Porras      SRI International
+Seungwon Shin       Kaist University
+
+------------------------------------
 ##Relevant Publication
 
 Seungwon Shin, Phillip Porras, Vinod Yegneswaran, Martin Fong, Guofei Gu, and Mabry Tyson. "FRESCO: Modular Composable Security Services for Software-Defined Networks." In Proceedings of the 20th Annual Network & Distributed System Security Symposium (NDSS'13), San Diego, CA, USA, February 2013.
