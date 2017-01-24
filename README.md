@@ -28,15 +28,15 @@ For more information about how to write network service and existing FRESCO modo
 
 -----------------------------------
 ##Contributors
-Lei Xu              Texas A&M University
+Lei Xu       @       Texas A&M University
 
-Guofei Gu           Texas A&M University
+Guofei Gu      @     Texas A&M University
 
-Robert A. Baykov    University of Maryland
+Robert A. Baykov   @ University of Maryland
 
-Phillip Porras      SRI International
+Phillip Porras   @   SRI International
 
-Seungwon Shin       Kaist University
+Seungwon Shin   @    Kaist University
 
 ------------------------------------
 ##Relevant Publication
