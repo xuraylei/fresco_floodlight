@@ -1,0 +1,21 @@
+{	
+	"name" : "ARP GUARD",
+	"description" : "Protect from ARP Poisoning/Spoofing attacks", 
+	"moduleNum" : "2",
+	"modules" : [
+	{
+		"id" : "1",
+		"type" : "FM_find_arpSpoofing",
+		"event" : "INCOMMING_FLOW",  	
+		"parameters" : [],
+		"inputs" : []
+	},
+	
+	{
+		"id" : "2", 
+		"type" : "FM_drop_flow", 
+		"event" : "PUSH",  					
+		"parameters" : [],
+		"inputs" : ["1:1:1"]
+	}]
+}

@@ -1,0 +1,30 @@
+{	
+	"name" : "flow_monitor",
+	"description" : "send new coming flow from host to a specific switch port for analysis", 
+	"moduleNum" : "1",
+	"modules" : [
+			{
+		"id" : "1",
+		"type" : "FM_flow_sourceIP",
+		"event" : "INCOMMING_FLOW",  	
+		"parameters" : [],
+		"inputs" : []
+	},
+	
+	{
+		"id" : "2",
+		"type" : "FM_match_ip",
+		"event" : "PUSH",  	
+		"parameters" : ["10.0.0.1"],
+		"inputs" : ["1:1:1"]
+	},
+		
+		{
+			"id" : "3",
+			"type" : "FM_mirror_flow", 	
+			"event" : "PULL",
+			"parameters" : ["00:00:00:00:00:04", "4"],
+			"inputs" : ["1:2:1"]
+		}
+	]
+}

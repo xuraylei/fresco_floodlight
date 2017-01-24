@@ -1,0 +1,46 @@
+{
+	"name" : "HTTP Blocker",
+	"description" : "block HTTP traffic from a specific host",
+	"moduleNum" : "3",
+	"modules" : [
+		{
+			"id" : "1",
+			"type" : "FM_flow_tcpip", 
+			"event" : "INCOMMING_FLOW", 
+			"parameters" : [],
+			"inputs" : []
+		},
+		
+		{
+			"id" : "2",
+			"type" : "FM_match_ip", 
+			"event" : "PUSH", 
+			"parameters" : ["10.0.0.1"],
+			"inputs" : ["1:1:1"]
+		},
+	
+		{
+			"id" : "3",
+			"type" : "FM_match_port", 
+			"event" : "PUSH", 
+			"parameters" : ["80"],
+			"inputs" : ["1:1:4"]
+		},
+		
+		{
+			"id" : "4",
+			"type" : "FM_logic_and", 
+			"event" : "PUSH", 
+			"parameters" : [],
+			"inputs" : ["1:2:1", "2:3:1"]
+		},
+		
+		{
+			"id" : "5",
+			"type" : "FM_drop_flow", 		
+			"event" : "PUSH", 
+		    "parameters" : [],
+		    "inputs" : ["1:4:1"]
+		}
+	]
+}

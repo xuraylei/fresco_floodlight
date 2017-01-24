@@ -1,0 +1,29 @@
+{	
+	"name" : "Host Monitor",
+	"description" : "Statically quarantine all traffic from a malicious host in the network", 
+	"moduleNum" : "2",
+	"modules" : [
+	{
+		"id" : "1",
+		"type" : "FM_flow_sourceIP",
+		"event" : "INCOMMING_FLOW",  	
+		"parameters" : [],
+		"inputs" : []
+	},
+	
+	{
+		"id" : "2",
+		"type" : "FM_match_ip",
+		"event" : "PUSH",  	
+		"parameters" : ["10.0.0.1"],
+		"inputs" : ["1:1:1"]
+	},
+	
+	{
+		"id" : "3", 
+		"type" : "FM_quarantine_ip", 
+		"event" : "PUSH",  					
+		"parameters" : [],
+		"inputs" : ["1:2:1", "2:1:1"]
+	}]
+}

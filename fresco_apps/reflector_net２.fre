@@ -1,0 +1,37 @@
+{	
+	"name" : "reflector_net",
+	"description" : "redirect the malicious host that launching scanning attack to a honey-pot (another version)",
+	"moduleNum" : "４",
+	"modules" : [
+	{
+		"id" : "1",
+		"type" : "FM_tcp_failure",
+		"event" : "TCP_CONNECTION_FAIL",  	
+		"parameters" : [],
+		"inputs" : []
+	},
+	
+	{
+		"id" : "2",
+		"type" : "FM_count_ip",
+		"event" : "PUSH",  	
+		"parameters" : [],
+		"inputs" : ["1:1:1"]
+	},
+	
+	{
+		"id" : "3",
+		"type" : "FM_arith_larger",
+		"event" : "PUSH",
+		"parameters" : ["10"],
+		"inputs" : ["1:2:1"]
+	},
+	
+	{
+		"id" : "4", 
+		"type" : "FM_redirect_ip", 
+		"event" : "PUSH",  					
+		"parameters" : ["10.0.0.2"],
+		"inputs" : ["1:3:1", "2:1:1", "3:1:3"]
+	}]
+}
